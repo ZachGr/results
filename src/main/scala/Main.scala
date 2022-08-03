@@ -27,58 +27,30 @@ object Main {
     //df.withColumn("total", col("total").cast(DecimalType(18, 1)))
     //session.spark.sql("SELECT * [except total] FROM c2020").show()
 
-    session.spark.sql("SELECT * FROM c2020").show()
+    /*session.spark.sql("SELECT * FROM c2020").show()
     session.spark.sql("SELECT * FROM c2010").show()
-    session.spark.sql("SELECT * FROM c2000").show()
+    session.spark.sql("SELECT * FROM c2000").show()*/
+
+    val queries = new Queries
+    /*session.spark.sql(queries.query1()).show()
+    session.spark.sql(queries.query2()).show()
+    session.spark.sql(queries.query3()).show()
+    session.spark.sql(queries.query4()).show()
+    session.spark.sql(queries.query5()).show()
+    session.spark.sql(queries.query6()).show()*/
+    session.spark.sql(queries.query7()).show()
 
 
-    session.spark.sql("SELECT CAST(pop2000 AS String), pop2010, pop2020 FROM "+
-      "(SELECT SUM(p0010001) AS pop2020 FROM c2020) "+
-      "join (SELECT SUM(p0010001) AS pop2010 FROM c2010)"+
-      "join (SELECT SUM(p0010001) AS pop2000 FROM c2000)").show()
-
-    /****************************CHANGING POP IN STATES OVER DECADES*******************************************************/
-    session.spark.sql("SELECT t1.STUSAB, pop2000, pop2010, ROUND((((pop2010 - pop2000)/pop2000)*100),1) AS pop2000_2010, " +
-                      "pop2020, ROUND((((pop2020 - pop2010)/pop2010)*100),1) AS pop2010_2020 FROM "+
-                      "(SELECT STUSAB, p0010001 AS pop2020 FROM c2020) AS t1 "+
-                      "INNER JOIN (SELECT STUSAB, p0010001 AS pop2010 FROM c2010) AS t2 "+
-                      "ON t1.STUSAB = t2.STUSAB " +
-                      "INNER JOIN (SELECT STUSAB, p0010001 AS pop2000 FROM c2000) AS t3 " +
-                      "ON t1.STUSAB = t3.STUSAB").show()
-    /**********************************************************************************/
-
-
-    /*******************************TRENDLINE PREDICITON***************************************************/
-    session.spark.sql("SELECT t1.STUSAB, pop2000, pop2010, "+
-      "ROUND(((((pop2010 - pop2000)/pop2000) * pop2010) + pop2010),1) AS pop2020Pred, pop2020 FROM "+
-      "(SELECT STUSAB, p0010001 AS pop2020 FROM c2020) AS t1 "+
-      "INNER JOIN (SELECT STUSAB, p0010001 AS pop2010 FROM c2010) AS t2 "+
-      "ON t1.STUSAB = t2.STUSAB " +
-      "INNER JOIN (SELECT STUSAB, p0010001 AS pop2000 FROM c2000) AS t3 " +
-      "ON t1.STUSAB = t3.STUSAB").show()
-
-
-    /********************************************************************************************************/
-
-    /*******************************FASTEST GROWING STATE***********************************************/
-    session.spark.sql("SELECT t1.STUSAB, pop2020, pop2010, pop2000, "+
-      "ROUND((((pop2020 - pop2000)/pop2000) * 100),1) AS popGrowth FROM "+
-      "(SELECT STUSAB, p0010001 AS pop2020 FROM c2020) AS t1 "+
-      "INNER JOIN (SELECT STUSAB, p0010001 AS pop2010 FROM c2010) AS t2 "+
-      "ON t1.STUSAB = t2.STUSAB " +
-      "INNER JOIN (SELECT STUSAB, p0010001 AS pop2000 FROM c2000) AS t3 " +
-      "ON t1.STUSAB = t3.STUSAB ORDER BY popGrowth DESC").show()
-
-
-    session.spark.sql("SELECT t1.STUSAB, pop2020, pop2010, pop2000, "+
-      "ROUND((((pop2020 - pop2000)/pop2000) * 100),1) AS popGrowth FROM "+
-      "(SELECT STUSAB, p0010001 AS pop2020 FROM c2020) AS t1 "+
-      "INNER JOIN (SELECT STUSAB, p0010001 AS pop2010 FROM c2010) AS t2 "+
-      "ON t1.STUSAB = t2.STUSAB " +
-      "INNER JOIN (SELECT STUSAB, p0010001 AS pop2000 FROM c2000) AS t3 " +
-      "ON t1.STUSAB = t3.STUSAB AND ROUND((((pop2020 - pop2000)/pop2000) * 100),1) < 0 ORDER BY popGrowth ASC").show()
-    //population prediction function
-    //session.spark.sql("SELECT SUM() FROM yo WHERE label LIKE '%Hi%' AND NOT label LIKE '%Not%'").show()*/
-  }
-
+    /*session.spark.sql(queries.query1()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query1/")
+    session.spark.sql(queries.query2()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query2/")
+    session.spark.sql(queries.query3()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query3/")
+    session.spark.sql(queries.query4()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query4/")
+    session.spark.sql(queries.query5()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query5/")
+    session.spark.sql(queries.query6()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query6/")
+    session.spark.sql(queries.query6()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query6/")
+    session.spark.sql(queries.query7()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query7/")
+    session.spark.sql(queries.query8()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query8/")
+    session.spark.sql(queries.query9()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query9/")
+    session.spark.sql(queries.query10()).coalesce(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("./resultCsv/query10/")
+  */}
 }
