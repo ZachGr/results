@@ -30,6 +30,9 @@
     <orderEntry type="library" name="sbt: com.jolbox:bonecp:0.8.0.RELEASE:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:geny_2.13:0.7.1:jar" level="project" />
     <orderEntry type="library" name="sbt: com.lihaoyi:os-lib_2.13:0.8.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lihaoyi:requests_2.13:0.7.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lihaoyi:ujson_2.13:2.0.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.lihaoyi:upickle-core_2.13:2.0.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.ning:compress-lzf:1.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: com.tdunning:json:1.8:jar" level="project" />
     <orderEntry type="library" name="sbt: com.thoughtworks.paranamer:paranamer:2.8:jar" level="project" />
@@ -170,6 +173,7 @@
     <orderEntry type="library" name="sbt: org.json4s:json4s-core_2.13:3.7.0-M11:jar" level="project" />
     <orderEntry type="library" name="sbt: org.json4s:json4s-jackson_2.13:3.7.0-M11:jar" level="project" />
     <orderEntry type="library" name="sbt: org.json4s:json4s-scalap_2.13:3.7.0-M11:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.jsoup:jsoup:1.14.3:jar" level="project" />
     <orderEntry type="library" name="sbt: org.lz4:lz4-java:1.7.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.objenesis:objenesis:2.5.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.roaringbitmap:RoaringBitmap:0.9.0:jar" level="project" />
@@ -180,6 +184,7 @@
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-xml_2.13:1.2.0:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.13.8:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.13.8:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scalaj:scalaj-http_2.11:2.4.2:jar" level="project" />
     <orderEntry type="library" name="sbt: org.slf4j:jcl-over-slf4j:1.7.30:jar" level="project" />
     <orderEntry type="library" name="sbt: org.slf4j:jul-to-slf4j:1.7.30:jar" level="project" />
     <orderEntry type="library" name="sbt: org.slf4j:slf4j-api:1.7.30:jar" level="project" />
